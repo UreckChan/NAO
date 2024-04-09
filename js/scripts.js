@@ -3,42 +3,43 @@
 * Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
 */
-//
-// Scripts
-// 
 
+/**
+ * Scripts
+ */
+
+// Espera a que el contenido de la ventana cargue completamente
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Navbar shrink function
+    // Función para contraer la barra de navegación
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navbarCollapsible.classList.remove('navbar-shrink');
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navbarCollapsible.classList.add('navbar-shrink');
         }
-
     };
 
-    // Shrink the navbar 
+    // Contraer la barra de navegación al cargar la página
     navbarShrink();
 
-    // Shrink the navbar when page is scrolled
+    // Contraer la barra de navegación al desplazarse la página
     document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
+    // Activar Bootstrap scrollspy en el elemento de navegación principal
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
             target: '#mainNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
-    // Collapse responsive navbar when toggler is visible
+    // Colapsar la barra de navegación receptiva cuando el alternador es visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
